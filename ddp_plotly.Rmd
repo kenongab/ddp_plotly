@@ -1,0 +1,22 @@
+---
+title: "Developing Data Products"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(plotly)
+library(datasets)
+```
+
+## R Markdown and Plotly
+
+### January 27, 2019
+Here is a boxplot of the 21st-day-weights of 50 chicks separated into 4 groups with different diets. The data was taken from the ChickWeight dataset in R.
+```{r plotly}
+x <- list( title = "Diet")
+y <- list(title = "Chick Weight (gm)")
+plot_ly(ChickWeight[ChickWeight$Time == 21, ], y = ~weight, color = ~Diet, type = "box") %>% layout(title = "Chick Weights on 21st Day of 4 Different Diets", xaxis = x, yaxis = y, showlegend = FALSE)
+```
+
+ 
